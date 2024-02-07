@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+  <changeSet id="1" author="Sully">
+        <createTable tableName="card_attributes">
+            <column name="card_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_card_attributes_card" references="cards(id)"/>
+            </column>
+            <column name="attribute_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_card_attributes_attribute" references="attributes(id)"/>
+            </column>
+
+            <constraints primaryKey="true">
+                <primaryKeyColumn names="card_id"/>
+                <primaryKeyColumn names="attribute_id"/>
+            </constraints>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

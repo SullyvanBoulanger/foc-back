@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+  <changeSet id="1" author="Sully">
+    <createTable tableName="cards">
+      <column name="id" type="varchar(10)">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+      <column name="url_picture" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="name" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="cost" type="varchar(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="text" type="varchar(1000)"/>
+      <column name="flavour" type="varchar(500)">
+      <column name="set" type="varchar(255)">
+        <constraints nullable="false" foreignKeyName="fk_card_set" references="sets(name)"/>
+      </column>
+      <column name="rarity" type="varchar(5)">
+        <constraints nullable="false" foreignKeyName="fk_card_rarity" references="rarities(code)"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>

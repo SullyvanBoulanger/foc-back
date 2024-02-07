@@ -1,0 +1,10 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: foc
+      POSTGRES_PASSWORD: foc
+      POSTGRES_DB: foc_db
+    ports:
+      - "5433:5432"
