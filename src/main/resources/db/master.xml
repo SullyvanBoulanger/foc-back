@@ -5,5 +5,15 @@
 >
    
   <include file="./changelog/001-initial-user.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/002-init-types.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/003-init-attributes.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/004-init-races-traits.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/005-init-sets.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/006-init-rarities.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/007-init-cards.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/008-init-card-attributes.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/009-init-card-races-traits.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/010-init-user-cards.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/011-load-data.xml" relativeToChangelogFile="true" />
 
 </databaseChangeLog>

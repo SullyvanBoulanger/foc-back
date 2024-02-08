@@ -12,12 +12,9 @@
             <column name="attribute_id" type="int">
                 <constraints nullable="false" foreignKeyName="fk_card_attributes_attribute" references="attributes(id)"/>
             </column>
-
-            <constraints primaryKey="true">
-                <primaryKeyColumn names="card_id"/>
-                <primaryKeyColumn names="attribute_id"/>
-            </constraints>
         </createTable>
+        
+        <addPrimaryKey tableName="card_attributes" columnNames="card_id,attribute_id" constraintName="composite_pk_card_attributes"/>
     </changeSet>
 
 </databaseChangeLog>

@@ -12,7 +12,7 @@
       <column name="name" type="varchar(255)">
         <constraints nullable="false" unique="true" uniqueConstraintName="sets_name_unique"/>
       </column>
-      <column name="abbreviation" type="varchar(255)">
+      <column name="abbreviation" type="varchar(4)">
         <constraints nullable="false" unique="true" uniqueConstraintName="sets_abbreviation_unique"/>
       </column>
     </createTable>

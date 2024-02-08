@@ -12,12 +12,9 @@
             <column name="race_trait_id" type="int">
                 <constraints nullable="false" foreignKeyName="fk_card_races_traits_race_trait" references="races_traits(id)"/>
             </column>
-
-            <constraints primaryKey="true">
-                <primaryKeyColumn names="card_id"/>
-                <primaryKeyColumn names="race_trait_id"/>
-            </constraints>
         </createTable>
+
+        <addPrimaryKey tableName="card_races_traits" columnNames="card_id,race_trait_id" constraintName="composite_pk_card_races_traits"/>
     </changeSet>
 
 </databaseChangeLog>

@@ -17,7 +17,7 @@
       </column>
       <column name="password" type="varchar(255)">
         <constraints nullable="false"/>
-      </column>a
+      </column>
     </createTable>
   </changeSet>
 

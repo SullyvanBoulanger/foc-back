@@ -1,0 +1,24 @@
+id,game_id,url_picture,type_id,name,cost,text,atk,def,flavour,set_id,rarity_id
+0,MP01-081,https://fowsim.s3.amazonaws.com/media/cards/MP01-081.jpg,2,"Cheshire Cat, the Pilgrinning in Wonderland",2-water,"Barrier
+When this card is put into a graveyard from the field >>> Its owner shuffles it from their graveyard into their deck. You may put a card named ""Cheshire Cat, the Grinning Remnant"" from your graveyard into the field.
+1-water, reveal this card from your hand until end of game: Search your deck for a card named ""Cheshire Cat, the Grinning Remnant"" and put it into the field. Play this ability only during main timing and only if you control a J/ruler with ""Alice"" in its name.
+1-water: Put this card from you hand or graveyard into the field stacked on top of a resonator you control named ""Cheshire Cat, the Grinning Remnant."" If you do, draw two cards, then shuffle a card from your hand into your deck.",500,700,,1,4
+1,TUS-068,https://fowsim.s3.amazonaws.com/media/cards/TUS-068.jpg,0,"Hyde, Solitary Assassin",,"Partner 1 (Moonchild)
+<Shinobi> EX Area (2) - As the game starts, you gain a <Shinobi> EX Area with two spaces or expand your <Shinobi> EX Area by two spaces until end of game.
+You may play cards from your <Shinobi> EX Area.
+1-colorless : Put a card from your hand face down into your <Shinobi> EX Area.",,,"Escaping from a guild of assassins, she seeks the truth about the world.",0,5
+2,CST-008,https://fowsim.s3.amazonaws.com/media/cards/CST-008.jpg,2,World Tree Fairy,1-light," Flying
+Barrier
+(Cards that share an attribute with Seven Kings rulers you own revealed outside the game)
+This card gains [+200/+200] for each Seven Kings ruler you own revealed outside the game.
+Enter >>> You may reveal a Seven Kings ruler you own outside the game that does not share a name with other Seven Kings rulers you own revealed outside the game and keep it revealed until end of game.",300,300,The guidance of the World Tree led Tina to a cruel truth. ,2,3
+3,CST-020,https://fowsim.s3.amazonaws.com/media/cards/CST-020.jpg,4,Boy's Staring At...,1-fire," Quickcast
+
+Draw a card.
+This card has Blazing Skill in addition to its other races as long as it is in your graveyard.
+When this card is put into your graveyard from your hand >>> Draw a card.",,,Brandhardt stared at the shooting star of fire and glimpsed at power beyond belief.,2,1
+4,TUS-069,https://fowsim.s3.amazonaws.com/media/cards/TUS-069.jpg,3,"Iga, Village of Assassins","1-light,1-darkness"," Quickcast
+
+Ninjas and Ninjutsus in your hand, graveyard, removed area and <Shinobi> EX Area gain Quickcast.
+Reveal this card from your hand: If you control a Ninja J/ruler, you may put this card from your hand into the field. If you do, it gains ""At the next end of turn >>> Its controller banishes it or puts it from the field into its owner's <Shinobi> EX Area."".
+Rest : Produce 1-light or 1-darkness. Spend this will only to play cards from your <Shinobi> EX Area.",,,"Whenever one of these godforsaken guilds shows up, there will be lots of victims.",0,1

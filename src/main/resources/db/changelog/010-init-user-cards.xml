@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+  <changeSet id="1" author="Sully">
+        <createTable tableName="user_cards">
+            <column name="user_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_user_cards_user" references="users(id)"/>
+            </column>
+            <column name="card_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_users_card_card" references="cards(id)"/>
+            </column>
+            <column name="quantity" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="user_cards" columnNames="user_id,card_id" constraintName="composite_pk_user_cards"/>
+    </changeSet>
+
+</databaseChangeLog>
