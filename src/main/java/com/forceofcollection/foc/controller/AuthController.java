@@ -19,7 +19,7 @@ import com.forceofcollection.foc.model.SignUpDto;
 import com.forceofcollection.foc.repository.UserRepository;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/auth")
 public class AuthController {
 
 	@Autowired
