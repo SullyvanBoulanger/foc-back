@@ -1,4 +1,4 @@
-package com.forceofcollection.foc.model;
+package com.forceofcollection.foc.entity;
 
 import java.io.Serializable;
 
