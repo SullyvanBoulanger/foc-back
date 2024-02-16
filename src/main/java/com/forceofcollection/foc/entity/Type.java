@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "races_traits", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
+@Table(name = "types", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
 public class Type {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
