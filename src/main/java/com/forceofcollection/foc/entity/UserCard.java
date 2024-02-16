@@ -1,7 +1,5 @@
 package com.forceofcollection.foc.entity;
 
-import com.forceofcollection.foc.model.UserCardId;
-
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
