@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.forceofcollection.foc.model.JwtAuthenticationResponse;
-import com.forceofcollection.foc.model.LoginRequest;
-import com.forceofcollection.foc.model.SignUpRequest;
+import com.forceofcollection.foc.model.auth.JwtAuthenticationResponse;
+import com.forceofcollection.foc.model.auth.LoginRequest;
+import com.forceofcollection.foc.model.auth.SignUpRequest;
 import com.forceofcollection.foc.service.AuthenticationService;
 
 import lombok.RequiredArgsConstructor;

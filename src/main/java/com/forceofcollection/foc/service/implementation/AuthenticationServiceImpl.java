@@ -6,9 +6,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.forceofcollection.foc.entity.User;
-import com.forceofcollection.foc.model.JwtAuthenticationResponse;
-import com.forceofcollection.foc.model.LoginRequest;
-import com.forceofcollection.foc.model.SignUpRequest;
+import com.forceofcollection.foc.model.auth.JwtAuthenticationResponse;
+import com.forceofcollection.foc.model.auth.LoginRequest;
+import com.forceofcollection.foc.model.auth.SignUpRequest;
 import com.forceofcollection.foc.repository.UserRepository;
 import com.forceofcollection.foc.service.AuthenticationService;
 import com.forceofcollection.foc.service.JwtService;
