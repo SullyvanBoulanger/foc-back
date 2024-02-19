@@ -1,4 +1,4 @@
-package com.forceofcollection.foc.model;
+package com.forceofcollection.foc.model.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginRequest {
-	private String usernameOrEmail;
-	private String password;
+public class JwtAuthenticationResponse {
+    private String token;
 }

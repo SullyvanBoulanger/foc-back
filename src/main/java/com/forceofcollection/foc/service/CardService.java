@@ -1,6 +1,7 @@
 package com.forceofcollection.foc.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import com.forceofcollection.foc.entity.Card;
 import com.forceofcollection.foc.entity.User;
 import com.forceofcollection.foc.entity.UserCard;
 import com.forceofcollection.foc.entity.UserCardId;
+import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
 import com.forceofcollection.foc.model.UserCardPreview;
 import com.forceofcollection.foc.repository.CardRepository;
@@ -38,6 +40,25 @@ public class CardService {
     private Card findCardById(Integer id){
         return cardRepository.findById(id).orElseThrow(() -> 
         new ResponseStatusException(HttpStatus.NOT_FOUND, "Card not found"));
+    }
+
+    public CardDetailsWithQuantityDTO getCardDetails(String username, Integer cardId){
+        Card card = findCardById(cardId);
+        
+        CardDetailsWithQuantityDTO response = new CardDetailsWithQuantityDTO();
+        response.setCard(card);
+        
+        Optional<User> user = userRepository.findByUsername(username);
+        if(!user.isEmpty()){
+            UserCardId userCardId = new UserCardId(user.get().getId(), card.getId());
+            Optional<UserCard> userCard = userCardRepository.findById(userCardId);
+            response.setQuantity(!userCard.isEmpty() 
+                ? userCard.get().getQuantity() 
+                : 0
+            );
+        }
+
+        return response;
     }
 
     @Transactional
