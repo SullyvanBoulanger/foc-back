@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.forceofcollection.foc.entity.Card;
 import com.forceofcollection.foc.model.CardPreview;
+import com.forceofcollection.foc.model.UserCardPreview;
 import com.forceofcollection.foc.repository.CardRepository;
 import com.forceofcollection.foc.service.CardService;
 
@@ -36,7 +37,7 @@ public class CardController {
 
     @GetMapping("/my_collection")
     @Transactional
-    public List<CardPreview> getMyCollection(@AuthenticationPrincipal UserDetails userDetails) {
+    public List<UserCardPreview> getMyCollection(@AuthenticationPrincipal UserDetails userDetails) {
         return cardService.getUserCards(userDetails.getUsername());
     }
     
