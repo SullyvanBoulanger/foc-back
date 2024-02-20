@@ -93,12 +93,11 @@ public class CardService {
         Card card = findCardById(request.getCardId());
         UserCardId id = new UserCardId(user.getId(), card.getId());
 
-        UserCard userCard = userCardRepository.findById(id).orElseThrow(() ->
-            new ResponseStatusException(HttpStatus.NOT_FOUND, "User does not possess this card"));
+        UserCard userCard = userCardRepository.findById(id).orElse(new UserCard(id, user, card, 0));
 
         userCard.setQuantity(userCard.getQuantity() - request.getNumberToApply());
 
-        if(userCard.getQuantity() == 0){
+        if(userCard.getQuantity() <= 0){
             userCardRepository.delete(userCard);
             return 0;
         }
