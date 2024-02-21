@@ -31,7 +31,7 @@ public class AuthController {
         return ResponseEntity.ok(authenticationService.signin(request));
     }
 
-    @GetMapping("/refresh")
+    @GetMapping("/user")
     public ResponseEntity<String> refreshUser() {
         return new ResponseEntity<>("Response body", HttpStatus.OK);
     }
