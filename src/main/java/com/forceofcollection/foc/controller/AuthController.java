@@ -1,6 +1,8 @@
 package com.forceofcollection.foc.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,4 +30,10 @@ public class AuthController {
     public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(authenticationService.signin(request));
     }
+
+    @GetMapping("/refresh")
+    public ResponseEntity<String> refreshUser() {
+        return new ResponseEntity<>("Response body", HttpStatus.OK);
+    }
+    
 }
