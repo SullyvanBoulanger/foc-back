@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
+import com.forceofcollection.foc.model.CardPreview;
+import com.forceofcollection.foc.model.FilterDTO;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
 import com.forceofcollection.foc.model.UserCardPreview;
 import com.forceofcollection.foc.service.CardService;
 
 import jakarta.transaction.Transactional;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 
 
@@ -48,4 +52,10 @@ public class CardController {
     public Integer removeUserCardAmount(@AuthenticationPrincipal UserDetails userDetails, @RequestBody ModifyUserCollectionRequest request) {
         return cardService.removeCardToCollection(userDetails.getUsername(), request);
     }
+
+    @PostMapping("/search")
+    public List<CardPreview> searchCards(@RequestBody List<FilterDTO> filterDTOs) {
+        return cardService.getCardsByFilter(filterDTOs);
+    }
+    
 }
