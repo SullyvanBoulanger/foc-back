@@ -1,5 +1,6 @@
 package com.forceofcollection.foc.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,6 +15,8 @@ import com.forceofcollection.foc.entity.User;
 import com.forceofcollection.foc.entity.UserCard;
 import com.forceofcollection.foc.entity.UserCardId;
 import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
+import com.forceofcollection.foc.model.CardPreview;
+import com.forceofcollection.foc.model.FilterDTO;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
 import com.forceofcollection.foc.model.UserCardPreview;
 import com.forceofcollection.foc.repository.CardRepository;
@@ -104,5 +107,9 @@ public class CardService {
 
         userCardRepository.saveAndFlush(userCard);
         return userCard.getQuantity();
+    }
+
+    public List<CardPreview> getCardsByFilter(List<FilterDTO> filterDTOs){
+        return new ArrayList<>();
     }
 }
