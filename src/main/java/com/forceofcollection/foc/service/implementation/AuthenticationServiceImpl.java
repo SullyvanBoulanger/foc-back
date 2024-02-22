@@ -42,4 +42,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         var jwt = jwtService.generateToken(user);
         return JwtAuthenticationResponse.builder().token(jwt).build();
     }
+
+    @Override
+    public JwtAuthenticationResponse refreshUser(String username) {
+        var user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid username/email or password"));
+        var jwt = jwtService.generateToken(user);
+        return JwtAuthenticationResponse.builder().token(jwt).build();
+    }
 }

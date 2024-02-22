@@ -56,7 +56,7 @@ public class SecurityConfig {
 		.cors(cors -> cors.configurationSource(corsConfigurationSource))
 		.csrf(csrf -> csrf.disable())
 		.authorizeHttpRequests(request -> {
-			request.requestMatchers("/auth/signin", "/auth/register").permitAll().anyRequest().authenticated();
+			request.requestMatchers("/auth/signin", "/auth/signup").permitAll().anyRequest().authenticated();
 		})
 		.sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
 		.authenticationProvider(authenticationProvider()).addFilterBefore(
