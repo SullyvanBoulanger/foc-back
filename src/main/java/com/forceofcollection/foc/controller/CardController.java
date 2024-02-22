@@ -1,33 +1,39 @@
 package com.forceofcollection.foc.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
 import com.forceofcollection.foc.model.CardPreview;
-import com.forceofcollection.foc.model.FilterDTO;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
+import com.forceofcollection.foc.model.SearchCriteria;
 import com.forceofcollection.foc.model.UserCardPreview;
+import com.forceofcollection.foc.repository.CardRepository;
 import com.forceofcollection.foc.service.CardService;
 
 import jakarta.transaction.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-
-
-
 
 @RestController
 @RequestMapping("/card")
 public class CardController {
+
+    @Autowired
+    private CardRepository cardRepository;
 
     @Autowired
     private CardService cardService;
@@ -53,9 +59,29 @@ public class CardController {
         return cardService.removeCardToCollection(userDetails.getUsername(), request);
     }
 
-    @PostMapping("/search")
-    public List<CardPreview> searchCards(@RequestBody List<FilterDTO> filterDTOs) {
-        return cardService.getCardsByFilter(filterDTOs);
+    // @PostMapping("/search")
+    // public List<CardPreview> searchCards(@RequestBody List<FilterDTO> filterDTOs) {
+    //     return cardService.getCardsByFilter(filterDTOs);
+    // }
+
+    // @GetMapping("/search")
+    // public List<CardPreview> search(@RequestParam(value = "search", required = false) String search) {
+    //     List<SearchCriteria> params = new ArrayList<SearchCriteria>();
+    //     if (search != null) {
+    //         Pattern pattern = Pattern.compile("(\\w+?)(:|<|>)(\\w+?),");
+    //         Matcher matcher = pattern.matcher(search + ",");
+    //         while (matcher.find()) {
+    //             params.add(new SearchCriteria(matcher.group(1), 
+    //               matcher.group(2), matcher.group(3)));
+    //         }
+    //     }
+    //     return cardRepository.searchCard(params);
+    // }
+
+    @GetMapping("/search")
+    public List<CardPreview> search(@RequestBody List<SearchCriteria> searchCriterias) {
+        return cardRepository.searchCard(searchCriterias);
     }
+    
     
 }
