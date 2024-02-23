@@ -1,7 +1,7 @@
 package com.forceofcollection.foc.service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.forceofcollection.foc.entity.Card;
+import com.forceofcollection.foc.entity.CardSpecs;
 import com.forceofcollection.foc.entity.User;
 import com.forceofcollection.foc.entity.UserCard;
 import com.forceofcollection.foc.entity.UserCardId;
 import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
 import com.forceofcollection.foc.model.CardPreview;
-import com.forceofcollection.foc.model.FilterDTO;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
 import com.forceofcollection.foc.model.UserCardPreview;
 import com.forceofcollection.foc.repository.CardRepository;
@@ -109,7 +109,22 @@ public class CardService {
         return userCard.getQuantity();
     }
 
-    public List<CardPreview> getCardsByFilter(List<FilterDTO> filterDTOs){
-        return new ArrayList<>();
+    public List<CardPreview> searchFilter(String username, Map<String, String> criterias){
+        List<Card> cards = cardRepository.findAll(
+            CardSpecs.nameLike(criterias.get("name"))
+            .and(CardSpecs.typeLike(criterias.get("type")))
+            .and(CardSpecs.attributesLike(criterias.get("attributes")))
+            .and(CardSpecs.raceTraitLike(criterias.get("raceTraits")))
+        );
+
+        // if(criterias.get("collection") != null && criterias.get("collection").equalsIgnoreCase("user")){
+        //     cards.stream().filter(card -> card)
+        // }
+
+        List<CardPreview> cardPreviews = cards.stream().map(card -> 
+            new CardPreview(card.getId(), card.getUrl_picture())
+        ).toList();
+
+        return cardPreviews;
     }
 }
