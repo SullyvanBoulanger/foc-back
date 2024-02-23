@@ -1,15 +1,11 @@
 package com.forceofcollection.foc.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,9 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
 import com.forceofcollection.foc.model.CardPreview;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
-import com.forceofcollection.foc.model.SearchCriteria;
 import com.forceofcollection.foc.model.UserCardPreview;
-import com.forceofcollection.foc.repository.CardRepository;
 import com.forceofcollection.foc.service.CardService;
 
 import jakarta.transaction.Transactional;
@@ -31,9 +25,6 @@ import jakarta.transaction.Transactional;
 @RestController
 @RequestMapping("/card")
 public class CardController {
-
-    @Autowired
-    private CardRepository cardRepository;
 
     @Autowired
     private CardService cardService;
@@ -79,9 +70,7 @@ public class CardController {
     // }
 
     @GetMapping("/search")
-    public List<CardPreview> search(@RequestBody List<SearchCriteria> searchCriterias) {
-        return cardRepository.searchCard(searchCriterias);
+    public List<CardPreview> search(@AuthenticationPrincipal UserDetails userDetails, @RequestParam Map<String, String> searchCriterias) {
+        return cardService.searchFilter(userDetails.getUsername(), searchCriterias);
     }
-    
-    
 }

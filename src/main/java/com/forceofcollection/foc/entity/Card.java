@@ -1,5 +1,9 @@
 package com.forceofcollection.foc.entity;
 
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,9 +12,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
-import java.util.Set;
 
 @Entity
 @Data
@@ -55,4 +59,8 @@ public class Card {
         inverseJoinColumns = @JoinColumn(name = "race_trait_id")
     )
     private Set<RaceTrait> raceTraits;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "card")
+    private Set<UserCard> userCards;
 }
