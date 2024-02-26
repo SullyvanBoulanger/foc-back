@@ -35,9 +35,9 @@ public class CardSpecs {
                 case ':':
                     return builder.equal(root.get(Card_.ATK), atk);
                 case '<':
-                    return builder.equal(root.get(Card_.ATK), atk);
+                    return builder.lessThan(root.get(Card_.ATK), atk);
                 case '>':
-                    return builder.equal(root.get(Card_.ATK), atk);
+                    return builder.greaterThan(root.get(Card_.ATK), atk);
                 default:
                    return builder.conjunction();
             }
@@ -57,9 +57,9 @@ public class CardSpecs {
                 case ':':
                     return builder.equal(root.get(Card_.DEF), def);
                 case '<':
-                    return builder.equal(root.get(Card_.DEF), def);
+                    return builder.lessThan(root.get(Card_.DEF), def);
                 case '>':
-                    return builder.equal(root.get(Card_.DEF), def);
+                    return builder.greaterThan(root.get(Card_.DEF), def);
                 default:
                    return builder.conjunction();
             }
