@@ -1,5 +1,6 @@
 package com.forceofcollection.foc.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,13 +15,11 @@ import com.forceofcollection.foc.model.auth.LoginRequest;
 import com.forceofcollection.foc.model.auth.SignUpRequest;
 import com.forceofcollection.foc.service.AuthenticationService;
 
-import lombok.RequiredArgsConstructor;
-
 @RestController
 @RequestMapping("/auth")
-@RequiredArgsConstructor
 public class AuthController {
-	private final AuthenticationService authenticationService;
+    @Autowired
+	private AuthenticationService authenticationService;
 
     @PostMapping("/signup")
     public ResponseEntity<JwtAuthenticationResponse> signup(@RequestBody SignUpRequest request) {
