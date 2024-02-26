@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
 import com.forceofcollection.foc.model.CardPreview;
+import com.forceofcollection.foc.model.FilterResponse;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
 import com.forceofcollection.foc.model.UserCardPreview;
 import com.forceofcollection.foc.service.CardService;
@@ -50,27 +51,14 @@ public class CardController {
         return cardService.removeCardToCollection(userDetails.getUsername(), request);
     }
 
-    // @PostMapping("/search")
-    // public List<CardPreview> searchCards(@RequestBody List<FilterDTO> filterDTOs) {
-    //     return cardService.getCardsByFilter(filterDTOs);
-    // }
-
-    // @GetMapping("/search")
-    // public List<CardPreview> search(@RequestParam(value = "search", required = false) String search) {
-    //     List<SearchCriteria> params = new ArrayList<SearchCriteria>();
-    //     if (search != null) {
-    //         Pattern pattern = Pattern.compile("(\\w+?)(:|<|>)(\\w+?),");
-    //         Matcher matcher = pattern.matcher(search + ",");
-    //         while (matcher.find()) {
-    //             params.add(new SearchCriteria(matcher.group(1), 
-    //               matcher.group(2), matcher.group(3)));
-    //         }
-    //     }
-    //     return cardRepository.searchCard(params);
-    // }
-
     @GetMapping("/search")
     public List<CardPreview> search(@AuthenticationPrincipal UserDetails userDetails, @RequestParam Map<String, String> searchCriterias) {
         return cardService.searchFilter(userDetails.getUsername(), searchCriterias);
     }
+
+    @GetMapping("/filters")
+    public FilterResponse getFilters() {
+        return cardService.getFilters();
+    }
+    
 }

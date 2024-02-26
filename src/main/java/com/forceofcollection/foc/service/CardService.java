@@ -17,9 +17,15 @@ import com.forceofcollection.foc.entity.UserCard;
 import com.forceofcollection.foc.entity.UserCardId;
 import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
 import com.forceofcollection.foc.model.CardPreview;
+import com.forceofcollection.foc.model.FilterResponse;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
 import com.forceofcollection.foc.model.UserCardPreview;
+import com.forceofcollection.foc.repository.AttributeRepository;
 import com.forceofcollection.foc.repository.CardRepository;
+import com.forceofcollection.foc.repository.RaceTraitRepository;
+import com.forceofcollection.foc.repository.RarityRepository;
+import com.forceofcollection.foc.repository.SetRepository;
+import com.forceofcollection.foc.repository.TypeRepository;
 import com.forceofcollection.foc.repository.UserCardRepository;
 import com.forceofcollection.foc.repository.UserRepository;
 
@@ -34,6 +40,21 @@ public class CardService {
 
     @Autowired
     private UserCardRepository userCardRepository;
+
+    @Autowired
+    private AttributeRepository attributeRepository;
+
+    @Autowired
+    private RaceTraitRepository raceTraitRepository;
+
+    @Autowired
+    private RarityRepository rarityRepository;
+
+    @Autowired
+    private SetRepository setRepository;
+
+    @Autowired
+    private TypeRepository typeRepository;
 
     private User findUserByUsername(String username){
         return userRepository.findByUsername(username).orElseThrow(() -> 
@@ -110,21 +131,39 @@ public class CardService {
     }
 
     public List<CardPreview> searchFilter(String username, Map<String, String> criterias){
+        User user = findUserByUsername(username);
+
         List<Card> cards = cardRepository.findAll(
             CardSpecs.nameLike(criterias.get("name"))
+            .and(CardSpecs.atkLike(criterias.get("atk")))
+            .and(CardSpecs.defLike(criterias.get("def")))
             .and(CardSpecs.typeLike(criterias.get("type")))
+            .and(CardSpecs.setLike(criterias.get("set")))
+            .and(CardSpecs.rarityLike(criterias.get("rarity")))
             .and(CardSpecs.attributesLike(criterias.get("attributes")))
             .and(CardSpecs.raceTraitLike(criterias.get("raceTraits")))
         );
-
-        // if(criterias.get("collection") != null && criterias.get("collection").equalsIgnoreCase("user")){
-        //     cards.stream().filter(card -> card)
-        // }
+        
+        if(criterias.get("collection") != null && criterias.get("collection").equalsIgnoreCase("user")){
+            List<Card> useCards = userCardRepository.findByUser_Id(user.getId())
+                .stream().map(userCard -> userCard.getCard()).toList();
+            cards = cards.stream().filter(card -> useCards.contains(card)).toList();
+        }
 
         List<CardPreview> cardPreviews = cards.stream().map(card -> 
             new CardPreview(card.getId(), card.getUrl_picture())
         ).toList();
 
         return cardPreviews;
+    }
+
+    public FilterResponse getFilters(){
+        return new FilterResponse(
+            typeRepository.findAll(),
+            attributeRepository.findAll(), 
+            raceTraitRepository.findAll(), 
+            setRepository.findAll(), 
+            rarityRepository.findAll()
+        );
     }
 }
