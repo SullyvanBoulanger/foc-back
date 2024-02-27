@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.data.jpa.domain.Specification;
 
 import jakarta.persistence.criteria.Expression;
-import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Predicate;
 
 public class CardSpecs {
@@ -72,10 +71,14 @@ public class CardSpecs {
                 return builder.conjunction();
             }
 
-            Join<Card, Type> typeJoin = root.join("type");
-            Expression<String> lowerCaseTypeName = builder.lower(typeJoin.get("name"));
-            Expression<String> lowerCaseSearch = builder.lower(builder.literal("%" + searchedType + "%"));
-            return builder.like(lowerCaseTypeName, lowerCaseSearch);
+            String[] types = searchedType.split(",");
+            List<Predicate> predicates = new ArrayList<>();
+            for (String type : types) {
+                Expression<String> lowerCaseTypeName = builder.lower(root.join("type").get("name"));
+                Expression<String> lowerCaseSearch = builder.lower(builder.literal(type.trim()));
+                predicates.add(builder.like(lowerCaseTypeName, lowerCaseSearch));
+            }
+            return builder.or(predicates.toArray(new Predicate[0]));
         };
     }
     
@@ -85,10 +88,14 @@ public class CardSpecs {
                 return builder.conjunction();
             }
 
-            Join<Card, Type> setJoin = root.join("set");
-            Expression<String> lowerCaseTypeName = builder.lower(setJoin.get("abbreviation"));
-            Expression<String> lowerCaseSearch = builder.lower(builder.literal("%" + searchedSet + "%"));
-            return builder.like(lowerCaseTypeName, lowerCaseSearch);
+            String[] sets = searchedSet.split(",");
+            List<Predicate> predicates = new ArrayList<>();
+            for (String set : sets) {
+                Expression<String> lowerCaseTypeName = builder.lower(root.join("set").get("abbreviation"));
+                Expression<String> lowerCaseSearch = builder.lower(builder.literal(set.trim()));
+                predicates.add(builder.like(lowerCaseTypeName, lowerCaseSearch));
+            }
+            return builder.or(predicates.toArray(new Predicate[0]));
         };
     }
     
@@ -98,10 +105,14 @@ public class CardSpecs {
                 return builder.conjunction();
             }
 
-            Join<Card, Type> rarityJoin = root.join("rarity");
-            Expression<String> lowerCaseTypeName = builder.lower(rarityJoin.get("code"));
-            Expression<String> lowerCaseSearch = builder.lower(builder.literal(searchedRarity));
-            return builder.like(lowerCaseTypeName, lowerCaseSearch);
+            String[] rarities = searchedRarity.split(",");
+            List<Predicate> predicates = new ArrayList<>();
+            for (String rarity : rarities) {
+                Expression<String> lowerCaseTypeName = builder.lower(root.join("rarity").get("code"));
+                Expression<String> lowerCaseSearch = builder.lower(builder.literal(rarity.trim()));
+                predicates.add(builder.like(lowerCaseTypeName, lowerCaseSearch));
+            }
+            return builder.or(predicates.toArray(new Predicate[0]));
         };
     }
 

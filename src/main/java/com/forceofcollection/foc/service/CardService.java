@@ -137,9 +137,9 @@ public class CardService {
             CardSpecs.nameLike(criterias.get("name"))
             .and(CardSpecs.atkLike(criterias.get("atk")))
             .and(CardSpecs.defLike(criterias.get("def")))
-            .and(CardSpecs.typeLike(criterias.get("type")))
-            .and(CardSpecs.setLike(criterias.get("set")))
-            .and(CardSpecs.rarityLike(criterias.get("rarity")))
+            .and(CardSpecs.typeLike(criterias.get("types")))
+            .and(CardSpecs.setLike(criterias.get("sets")))
+            .and(CardSpecs.rarityLike(criterias.get("rarities")))
             .and(CardSpecs.attributesLike(criterias.get("attributes")))
             .and(CardSpecs.raceTraitLike(criterias.get("raceTraits")))
         );
