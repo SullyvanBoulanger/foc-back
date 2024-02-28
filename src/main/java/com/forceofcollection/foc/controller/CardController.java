@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,7 @@ import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
 import com.forceofcollection.foc.model.CardPreview;
 import com.forceofcollection.foc.model.FilterResponse;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
+import com.forceofcollection.foc.model.PageDTO;
 import com.forceofcollection.foc.model.UserCardPreview;
 import com.forceofcollection.foc.service.CardService;
 
@@ -52,8 +55,8 @@ public class CardController {
     }
 
     @GetMapping("/search")
-    public List<CardPreview> search(@AuthenticationPrincipal UserDetails userDetails, @RequestParam Map<String, String> searchCriterias) {
-        return cardService.searchFilter(userDetails.getUsername(), searchCriterias);
+    public Page<CardPreview> search(@AuthenticationPrincipal UserDetails userDetails, @RequestParam Map<String, String> searchCriterias, @RequestBody PageDTO page) {
+        return cardService.searchFilter(userDetails.getUsername(), searchCriterias, PageRequest.of(page.getPageNumber(), 30));
     }
 
     @GetMapping("/filters")

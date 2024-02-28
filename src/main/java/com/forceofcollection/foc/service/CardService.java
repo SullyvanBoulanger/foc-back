@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -130,10 +133,10 @@ public class CardService {
         return userCard.getQuantity();
     }
 
-    public List<CardPreview> searchFilter(String username, Map<String, String> criterias){
+    public Page<CardPreview> searchFilter(String username, Map<String, String> criterias, Pageable pageable){
         User user = findUserByUsername(username);
 
-        List<Card> cards = cardRepository.findAll(
+        Page<Card> cards = cardRepository.findAll(
             CardSpecs.nameLike(criterias.get("name"))
             .and(CardSpecs.atkLike(criterias.get("atk")))
             .and(CardSpecs.defLike(criterias.get("def")))
@@ -142,19 +145,21 @@ public class CardService {
             .and(CardSpecs.rarityLike(criterias.get("rarities")))
             .and(CardSpecs.attributesLike(criterias.get("attributes")))
             .and(CardSpecs.raceTraitLike(criterias.get("raceTraits")))
+            , pageable
         );
         
         if(criterias.get("collection") != null && criterias.get("collection").equalsIgnoreCase("user")){
             List<Card> useCards = userCardRepository.findByUser_Id(user.getId())
                 .stream().map(userCard -> userCard.getCard()).toList();
-            cards = cards.stream().filter(card -> useCards.contains(card)).toList();
+            List<Card> filteredCards = cards.stream().filter(card -> useCards.contains(card)).toList();
+            cards = new PageImpl<>(filteredCards, pageable, filteredCards.size());
         }
 
         List<CardPreview> cardPreviews = cards.stream().map(card -> 
             new CardPreview(card.getId(), card.getUrl_picture())
         ).toList();
 
-        return cardPreviews;
+        return new PageImpl<>(cardPreviews, pageable, cardPreviews.size());
     }
 
     public FilterResponse getFilters(){
