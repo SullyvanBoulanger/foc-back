@@ -129,7 +129,7 @@ public class CardSpecs {
                 Expression<String> lowerCaseSearch = builder.lower(builder.literal(trait.trim()));
                 predicates.add(builder.like(lowerCaseTypeName, lowerCaseSearch));
             }
-            return builder.or(predicates.toArray(new Predicate[0]));
+            return builder.and(predicates.toArray(new Predicate[0]));
         };
     }
 
@@ -148,7 +148,7 @@ public class CardSpecs {
                 predicates.add(builder.like(lowerCaseTypeName, lowerCaseSearch));
             }
 
-            return builder.or(predicates.toArray(new Predicate[0]));
+            return builder.and(predicates.toArray(new Predicate[0]));
         };
     }
 }
