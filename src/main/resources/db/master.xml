@@ -15,5 +15,6 @@
   <include file="./changelog/009-init-card-races-traits.xml" relativeToChangelogFile="true" />
   <include file="./changelog/010-init-user-cards.xml" relativeToChangelogFile="true" />
   <include file="./changelog/011-load-data.xml" relativeToChangelogFile="true" />
+  <include file="./changelog/012-load-data.xml" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
