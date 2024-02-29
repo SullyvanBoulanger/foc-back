@@ -1,0 +1,128 @@
+id,game_id,url_picture,type_id,name,cost,text,atk,def,flavour,set_id,rarity_id
+5,TUS-079,https://fowsim.s3.amazonaws.com/media/cards/TUS-079.jpg,4,Rocket Dive,"1-light,1-darkness"," Choose one;
+- Your opponent banishes two resonators.
+- Expand your <Shinobi> EX Area by one space until end of game.
+If you played this card from your <Shinobi> EX Area, you may contract this card with """"Hyde, Solitary Assassin"""".",,,"""I make my own destiny!"" -Hide, Solitary Assassin",0,2
+6,TUS-079J,https://fowsim.s3.amazonaws.com/media/cards/TUS-079J.jpg,1,Pink Spider,," Drain
+Bane
+
+You may play cards from your <Shinobi> EX Area.
+Enter >>> Expand your <Shinobi> EX Area by one space until end of game. Then you may put any number of cards from your hand face down into your <Shinobi> EX Area. Draw X cards, where X is the number of cards put into your <Shinobi> EX Area this way.",800,1100,Her contract with the Cat Moon transformed her into this special form.,0,6
+7,CST-007,https://fowsim.s3.amazonaws.com/media/cards/CST-007.jpg,2,"Hyde, Shooting Star of Light","1-light,1-colorless"," Quickcast
+
+Enter >>> Recover all entities you control with seal counters on them. Rest all entities your opponent controls with seal counters on them. Move all seal counters from other entities to this card.
+1-light, Remove a seal counter from this card: Choose one;
+- Destroy target rested non-magic stone entity.
+- Cancel target activate ability.
+, reveal this card from your hand: Put a seal counter on target entity.",700,700,,2,4
+8,TUS-001,https://fowsim.s3.amazonaws.com/media/cards/TUS-001.jpg,2,Glowing Spider,1-light,"This card gains [+200/+200] for each card in your <Shinobi> EX Area.
+Enter >>> Draw X cards, where X is the number of cards ion your <Shinobi> EX Area.",400,400,"In the underworld, light is knowledge.",0,1
+9,TUS-002,https://fowsim.s3.amazonaws.com/media/cards/TUS-002.jpg,4,Kunai Throw,1-light,"Quickcast
+
+Destroy target rested J/resonator.
+Flip this face-down card in your <Shinobi> EX Area face up: Rest target J/resonator.",,,"A proper kunai attack needs two hits. The first binds the shadow of the target, the second destroys it. ",0,1
+10,TUS-003,https://fowsim.s3.amazonaws.com/media/cards/TUS-003.jpg,2,"L, Tracker ",2-light,"Enter >>> J/resonators you control gain [+600/+600] until end of turn.
+1-light, put this card from your hand face down into your <Shinobi> EX Area: Target J/resonator you control gains [+600/+600] until end of turn.
+Mastery ""R, Tracker""",700,700,"Rusty's henchmen, L and R, were sent to lead the pursuit of Hyde.",0,3
+11,TUS-011,https://fowsim.s3.amazonaws.com/media/cards/TUS-011.jpg,4,Whistling Summoning ,"1-light,1-colorless","Quickcast
+
+Put a resonator with total cost 3 or less from your <Shinobi> EX Area into the field.
+Flip this card face-down in your <Shinobi> EX Area face up: Put target resonator with total cost 1 or less from your graveyard into your hand.",,,The sound waves Hyde creates by whistling with her fingers can only be heard by certain beings.,0,1
+12,TUS-080,https://fowsim.s3.amazonaws.com/media/cards/TUS-080.jpg,2,"Rusty, Phantom Ninja Genius ","2-light,1-darkness","Precision
+
+Enter >>> Destroy target J/resonator your opponent controls. If you destroyed a resonator this way, you may put it from its owner's graveyard into the field under you control.
+1-light, flip this face-down card in your <Shinobi> EX Area face up: You gain 1000 life. Draw a card.
+1-darkness, flip this face-down card in your <Shinobi> EX Area face up: Destroy target J/resonator. ",1000,1000,"Rusty will never forget Hyde, and will never stop crying.",0,4
+13,CST-073,https://fowsim.s3.amazonaws.com/media/cards/CST-073.jpg,5,"Kerukeion, Star Sword","1-light,1-fire","Quickcast
+Mythic
+
+Play this card or its abilities only if you control a J/ruler named """"Lenneth, Lonely Asteras"""".
+Enter >>> Draw a card. You gain 1000 life. You may reveal a Seven Kings ruler you own from outside the game that does not share a name with other Seven Kings rulers you own revealed outside the game and keep it revealed until end of game.
+Seal (X), where X is seven minus the number of Seven Kings rulers you own revealed outside the game (This card gains the following text as long as you control X or more magic stones, where X is seven minus the number of Seven Kings rulers you own revealed outside the game.)
+Rest : You may contract this card with """"Lenneth, Lonely Asteras"""". Play this ability only during your turn.",,,"The star of destiny, brought by a star tree. ",2,2
+14,CST-073J,https://fowsim.s3.amazonaws.com/media/cards/CST-073J.jpg,1,"Lenneth, Guardian of Legacies ",,"Flying
+Drain
+
+This card has """"Lenneth, Lonely Asteras"""" in addition to its other names.
+This card gains [+400/+400] for each Seven Kings ruler you own revealed outside the game.
+Enter >>> You may reveal a Seven Kings ruler you own from outside the game that does not share a name with other Seven Kings rulers you own revealed outside the game and keep it revealed until end of game.
+1-light God's Art ""Quickening of the World Tree"" : Put any number of cards from your hand on the bottom of your deck in any order, then draw that many cards. You may search your deck for a card named """"Avatar of the Seven Lands, Alice"""" and/or a card named """"Blade of the Seven Lands, Excalibur X"""" and put them into the field. If you do, shuffle your deck.",0,0,The girl's voice reminded Lenneth of her important mission.,2,6
+15,JRP-107 ,https://fowsim.s3.amazonaws.com/media/cards/JRP-107.jpg,5,The Virtuous versus The Virtual,"1-light, 1-fire, 1-water, 1-wind, 1-darkness","Whenever a spell you control is chained >>> Reveal the top seven cards of your deck. You may pay 700 life. If you do, put a card with Chaining
+or Seal from among them into your hand. Put the rest on the bottom of your deck in any order. This ability triggers only once per turn.
+Whenever a Seven Kings ruler you own is revealed from outside the game >>> You may pay 700 life. If you do, draw a card.
+Mastery (Seven Stars) or (Seven Kings)",,,,3,1
+16,JRP-071 ,https://fowsim.s3.amazonaws.com/media/cards/JRP-071.jpg,2,Replicant: Shiva ,"1-fire, 1-wind, 1-colorless","Solarisation (1)
+Belligerence
+Precision
+Eternal
+
+At the beginning of the game >>> If you did not already reveal a card that shares a name with this card this game, you may reveal this card you own from outside the game and keep it revealed until end of game. You may play it from outside the game as long as it is revealed.
+Enter >>> This card deals damage to each J/resonator your opponent controls equal to that J/resonator's ATK. If you played this card with Solarisation, destroy up to three resonators your opponent controls instead.
+Whenever this card destroys a J/resonator >>> Put X [+100/+100] counters on each J/resonator you control, where X is the total cost of the destroyed J/resonator.",600,700,The end of Nature. ,3,2
+17,JRP-103,https://fowsim.s3.amazonaws.com/media/cards/JRP-103.jpg,3,"Inntel, Dark Clown ","1-darkness, 1-colorless","Solarisation (1)
+If you would banish an entity, you may banish a resonator with ‹‹Blessing›› your opponent controls instead. Apply this effect only once per turn.
+Whenever this card gains ‹‹Blessing›› >>> Another target entity gains ‹‹Blessing›› until end of game. (Entities can have multiple instances of ‹‹Blessing››.) This ability triggers only once per turn.
+Whenever a resonator with ‹‹Blessing›› is destroyed >>> You gain X00 life, where X is five.",,,,3,1
+18,CST-012,https://fowsim.s3.amazonaws.com/media/cards/CST-012.jpg,4,Hyde's Help,1-light,"Quickcast
+Remnant
+
+Choose one;
+- Prevent all damage that would be dealt to J-rulers you control until the end of your opponent's turn. Choose this option only if you play this card from your hand.
+- You gain 1000 life. Draw a card. Choose this option only if you play this card from a zone other than your hand.",,,"Hyde knows the truth about this world, but she can't tell Tina.",2,1
+19,CST-036 ,https://fowsim.s3.amazonaws.com/media/cards/CST-036.jpg,2,World Tree Mermaid,1-water,"This card gains [+200/+200] for each Seven Kings ruler you own revealed outside the game.
+Prevent all damage that would be dealt to this card by chants.
+Your opponent must target this card with spells or abilities, if able.
+Enter >>> You may reveal a Seven Kings ruler you own from outside the game that does not share a name with other Seven Kings rulers you own revealed outside the game and keep it revealed until end of game.",300,300,The guidance of the World Tree led Nicklausse to their mission.,2,3
+20,CST-041,https://fowsim.s3.amazonaws.com/media/cards/CST-041.jpg,3,Lake of the World Tree ,1-water,Enter >>> You may reveal a Seven Kings ruler you own from outside the game that does not share a name with other Seven Kings rulers you own revealed outside the game and keep it revealed until end of game. Draw a card.,,,"Sitting on the shore of Star Lake, near the roots of the World Tree, one can hear voices from beneath the waves. ",2,1
+21,CST-044,https://fowsim.s3.amazonaws.com/media/cards/CST-044.jpg,0,"Maya, Wild Estrella",,Tag (Seven Stars),,,"Everybody in this world supports one of the star trees, and once you have pledged allegiance, you must keep fighting until one of them falls.",2,5
+22,CST-045,https://fowsim.s3.amazonaws.com/media/cards/CST-045.jpg,5,"Tigre Plateado, Star Tiger Fur ",1-wind,"Quickcast
+Mythic
+
+Play this card or its abilities only if you control a J/ruler named """"Maya, Wild Estrella"""".
+This card has the magic stone type wind magic stone.
+Enter >>> Draw a card.
+Seal (X), where X is six minus the number of entities with magic stone type wind magic stone you control. (This card gains the following text as long as you control X or more magic stones, where X is six minus the number of entities with magic stone type wind magic stone you control.)
+Rest : You may contract this card with """"Maya, Wild Estrella"""". Play this ability only during your turn.",,,"The nature of wind, brought by a star tree. ",2,2
+23,CST-045J,https://fowsim.s3.amazonaws.com/media/cards/CST-045J.jpg,1,"Maya, Wild Estrella",,"Precision
+Pierce
+
+Enter >>> Destroy all J/resonators with Flying your opponent controls. Recover a magic stone.
+Whenever you play a Wild Skill spell >>> Double ATK and DEF of this card until end of turn.",1000,1000,"""I've found my perfect playmate!!""",2,6
+24,CST-047,https://fowsim.s3.amazonaws.com/media/cards/CST-047.jpg,4,Sudden Rise of the Wild,1-wind,"Play this card only if you control a J/ruler named """"Maya, Wild Estrella"""".
+Search your deck for a wind resonator with total cost X or less and put it into the field, where X is the number of entities with magic stone type wind magic stone you control minus 2. Then shuffle your deck.",,,A sudden arrival. ,2,1
+25,CST-049,https://fowsim.s3.amazonaws.com/media/cards/CST-049.jpg,4,Weretiger's Staring at...,1-wind,Look at the top five cards of your magic stone deck and put them back in any order. Draw a card.,,,"Maya stared at the shooting star of wind, and felt her heart beat faster and faster, a feeling she had dearly missed for a very long time.",2,1
+26,CST-029,https://fowsim.s3.amazonaws.com/media/cards/CST-029.jpg,0,"Nicklausse, Enchanting Étoile ",,Tag (Seven Stars),,,"There are two star trees in this world. Although both are named Yggdrasil, they couldn't be more different: The benevolent World Tree and the evil Malefic Tree.",2,5
+27,CST-030,https://fowsim.s3.amazonaws.com/media/cards/CST-030.jpg,5,"Pluie de Pétale, Star Scepter ",1-water,"Quickcast
+Mythic
+
+Play this card or its abilities only if you control a J/ruler named """"Nicklausse, Enchanting Étoile"""".
+Enter >>> Draw a card. You may put a Flower addition with total cost 1 or less from your hand into the field.
+Seal (X), where X is six minus the number of Flower additions you control in the field and in your graveyard. (This card gains the following text as long as you control X or more magic stones, where X is six minus the number of Flower additions you control in the field and in your graveyard.)
+Rest : You may contract this card with """"Nicklausse, Enchanting Étoile"""". Play this ability only during your turn.",,,"The flower blessing of water, brought by a star tree.",2,2
+28,CST-030J,https://fowsim.s3.amazonaws.com/media/cards/CST-030J.jpg,1,"Nicklausse, Enchanting Étoile ",,"Flying
+Barrier
+
+Flower additions in your hand gain Quickcast.
+Flower additions you control become [1000/1000] resonators with Flying. They are still their original type.
+Whenever you play an Enchanting Skill spell >>> Rest up to one target non-magic stone entity.",1000,1000,"""Only flowers will never betray you.""",2,6
+29,CST-032,https://fowsim.s3.amazonaws.com/media/cards/CST-032.jpg,4,Enchanting Words ,1-water,"Quickcast
+
+Play this card only if you control a J/ruler named """"Nicklausse, Enchanting Étoile"""".
+Put target non-magic stone, non-J-ruler entity your opponent controls with total cost 1 or less on top of its owner's deck. You may search your deck for an addition with total cost 1, reveal it and put it into your hand. If you do, shuffle your deck.",,,"Nicklausse speaks to the world, and even loves the fact that it was created.",2,1
+30,CST-031 ,https://fowsim.s3.amazonaws.com/media/cards/CST-031.jpg,4,Enchanting Sortie,1-water,"Quickcast
+
+Play this card only if you control a J/ruler named """"Nicklausse, Enchanting Étoile"""".
+Choose one. If this card was chained, choose up to two instead;
+- Look at the top three cards of your deck. Put a card from among them into your hand and the rest into your graveyard.
+- Cancel target activate ability your opponent controls.
+Chaining (Virtuous Skill, Blazing Skill, Wild Skill or Deathly Skill) (If this is the first spell after a Virtuous Skill, Blazing Skill, Wild Skill or Deathly Skill spell you played this turn, this card is chained.)",,,"""Come, you all, who color my story!"" - Nicklausse, Enchanting Étoile",2,3
+31,CST-039,https://fowsim.s3.amazonaws.com/media/cards/CST-039.jpg,2,Dragon of Fragrant Olives,"1-water, 5-colorless","Flying
+
+You may pay less to play this card for each Flower addition you control in the field and in your graveyard.
+Additions you control gain Eternal.
+Enter >>> Put target Flower addition with total cost 1 or less from your graveyard into the field.",1000,1000,This dragon somehow smells of olives. Strongly. Very strongly.,2,1
+32,CST-022,https://fowsim.s3.amazonaws.com/media/cards/CST-022.jpg,2,World Tree Dragon,1-fire,"Flying
+
+This card gains [+200/+200] for each Seven Kings ruler you own revealed outside the game.
+Enter >>> You may reveal a Seven Kings ruler you own outside the game that does not share a name with other Seven Kings rulers you own revealed outside the game and keep it revealed until end of game.
+1-fire : Draw a card, then discard a card. This card deals 200 damage multiplied by X to up to one target J/resonator, where X is the number of Seven Kings rulers you own revealed outside the game.",300,300,The guidance of a star tree taught Brandhardt the resolve to move forward.,2,3

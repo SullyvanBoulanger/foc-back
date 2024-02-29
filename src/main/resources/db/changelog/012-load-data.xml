@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+<changeSet id="1" author="Sully">
+    <loadData file="./012-races_traits.csv" tableName="races_traits" relativeToChangelogFile="true"/>
+    <loadData file="./012-rarities.csv" tableName="rarities" relativeToChangelogFile="true"/>
+    <loadData file="./012-cards.csv" tableName="cards" relativeToChangelogFile="true"/>
+    <loadData file="./012-card_attributes.csv" tableName="card_attributes" relativeToChangelogFile="true"/>
+    <loadData file="./012-card_races_traits.csv" tableName="card_races_traits" relativeToChangelogFile="true"/>
+</changeSet>
+
+</databaseChangeLog>
