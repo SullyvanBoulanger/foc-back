@@ -1,6 +1,5 @@
 package com.forceofcollection.foc.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ import com.forceofcollection.foc.model.CardDetailsWithQuantityDTO;
 import com.forceofcollection.foc.model.CardPreview;
 import com.forceofcollection.foc.model.FilterResponse;
 import com.forceofcollection.foc.model.ModifyUserCollectionRequest;
-import com.forceofcollection.foc.model.PageDTO;
 import com.forceofcollection.foc.model.UserCardPreview;
 import com.forceofcollection.foc.service.CardService;
 
@@ -29,6 +27,8 @@ import jakarta.transaction.Transactional;
 @RestController
 @RequestMapping("/card")
 public class CardController {
+
+    private final int CARD_BY_PAGE = 18;
 
     @Autowired
     private CardService cardService;
@@ -40,8 +40,8 @@ public class CardController {
 
     @GetMapping("/my_collection")
     @Transactional
-    public List<UserCardPreview> getMyCollection(@AuthenticationPrincipal UserDetails userDetails) {
-        return cardService.getUserCards(userDetails.getUsername());
+    public Page<UserCardPreview> getMyCollection(@AuthenticationPrincipal UserDetails userDetails, @RequestParam(name = "page", required = true, defaultValue = "0") String page) {
+        return cardService.getUserCards(userDetails.getUsername(), PageRequest.of(Integer.parseInt(page), CARD_BY_PAGE));
     }
 
     @PutMapping("/add_to_collection")
@@ -55,8 +55,8 @@ public class CardController {
     }
 
     @GetMapping("/search")
-    public Page<CardPreview> search(@AuthenticationPrincipal UserDetails userDetails, @RequestParam Map<String, String> searchCriterias, @RequestBody PageDTO page) {
-        return cardService.searchFilter(userDetails.getUsername(), searchCriterias, PageRequest.of(page.getPageNumber(), 30));
+    public Page<CardPreview> search(@AuthenticationPrincipal UserDetails userDetails, @RequestParam Map<String, String> searchCriterias, @RequestParam(name = "page", required = true, defaultValue = "0") String page) {
+        return cardService.searchFilter(userDetails.getUsername(), searchCriterias, PageRequest.of(Integer.parseInt(page), CARD_BY_PAGE));
     }
 
     @GetMapping("/filters")

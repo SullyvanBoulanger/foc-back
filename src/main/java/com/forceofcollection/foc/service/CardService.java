@@ -89,17 +89,20 @@ public class CardService {
     }
 
     @Transactional
-    public List<UserCardPreview> getUserCards(String username){
+    public Page<UserCardPreview> getUserCards(String username, Pageable pageable){
         User user = findUserByUsername(username);
-        
-        List<UserCardPreview> response = user.getUserCards().stream()
+
+        Page<UserCard> userCards = userCardRepository.findByUser_Id(user.getId(), pageable);
+
+        List<UserCardPreview> userCardsFiltered = userCards.stream()
             .map(userCard -> new UserCardPreview(
                 userCard.getCard().getId(), 
                 userCard.getCard().getUrl_picture(),
                 userCard.getQuantity()
             ))
             .toList();
-        return response;
+
+        return new PageImpl<>(userCardsFiltered, pageable, userCardsFiltered.size());
     }
 
     public Integer addCardToCollection(String username, ModifyUserCollectionRequest request){
