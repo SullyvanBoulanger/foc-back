@@ -1,9 +1,10 @@
 package com.forceofcollection.foc.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,8 @@ import jakarta.transaction.Transactional;
 @RequestMapping("/card")
 public class CardController {
 
+    private final int CARD_BY_PAGE = 18;
+
     @Autowired
     private CardService cardService;
     
@@ -37,8 +40,8 @@ public class CardController {
 
     @GetMapping("/my_collection")
     @Transactional
-    public List<UserCardPreview> getMyCollection(@AuthenticationPrincipal UserDetails userDetails) {
-        return cardService.getUserCards(userDetails.getUsername());
+    public Page<UserCardPreview> getMyCollection(@AuthenticationPrincipal UserDetails userDetails, @RequestParam(name = "page", required = true, defaultValue = "0") String page) {
+        return cardService.getUserCards(userDetails.getUsername(), PageRequest.of(Integer.parseInt(page), CARD_BY_PAGE));
     }
 
     @PutMapping("/add_to_collection")
@@ -52,8 +55,8 @@ public class CardController {
     }
 
     @GetMapping("/search")
-    public List<CardPreview> search(@AuthenticationPrincipal UserDetails userDetails, @RequestParam Map<String, String> searchCriterias) {
-        return cardService.searchFilter(userDetails.getUsername(), searchCriterias);
+    public Page<CardPreview> search(@AuthenticationPrincipal UserDetails userDetails, @RequestParam Map<String, String> searchCriterias, @RequestParam(name = "page", required = true, defaultValue = "0") String page) {
+        return cardService.searchFilter(userDetails.getUsername(), searchCriterias, PageRequest.of(Integer.parseInt(page), CARD_BY_PAGE));
     }
 
     @GetMapping("/filters")
